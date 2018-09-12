@@ -1,0 +1,43 @@
+package filesystem;
+
+public class File extends ElementDeStockage {
+	protected String Content;
+	public File(String name) {
+		super(name,daddy);
+		this.Content=new String();
+
+	}
+
+	@Override
+	public int size() {
+		return Content.length();
+	}
+
+	@Override
+	public String absoluteAddress() {
+		return Daddy.absoluteAddress()+this.name;
+	}
+
+	@Override
+	public void ls() {
+		System.out.println(this.name);
+	}
+
+	public int nbElem(){
+		return Content.length();
+	}
+	
+	@Override
+	protected int getBasicSize() {
+		return 0;
+	}
+	
+	public void Cat(){
+		System.out.println(this.Content);
+	}
+	
+	public void setContents(String NewContent){
+		this.Content=NewContent;
+	}
+
+}

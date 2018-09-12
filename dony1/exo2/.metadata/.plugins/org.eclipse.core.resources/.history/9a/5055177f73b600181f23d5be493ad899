@@ -1,0 +1,17 @@
+package filesystem;
+
+public abstract class ElementDeStockage {
+	private String name;
+	private int basicSize;
+	
+	ElementDeStockage(String name){
+		this.name=name;
+		this.basicSize=getBasicSize();
+	}
+	
+	abstract public int size();
+	abstract public String absoluteAddress();
+	abstract public void ls();
+	
+	abstract protected int getBasicSize();
+}

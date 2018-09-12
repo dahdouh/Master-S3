@@ -1,0 +1,27 @@
+package filesystem;
+
+public class RegularDirectory extends Directory {
+	private Directory Daddy;
+	public Regular Directory(Directory d){
+		this.Daddy=d;
+	}
+	
+	@Override
+	int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	String absoluteAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	void ls() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

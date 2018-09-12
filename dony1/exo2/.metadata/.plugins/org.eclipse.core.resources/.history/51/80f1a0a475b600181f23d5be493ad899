@@ -1,0 +1,32 @@
+package filesystem;
+
+public class RegularDirectory extends Directory {
+	private Directory Daddy;
+	
+	public RegularDirectory(String name,Directory daddy){
+		super(name);
+		this.Daddy=daddy;
+	}
+	
+	@Override
+	public int size() {
+		int s=this.getBasicSize();
+		for(ElementDeStockage Baby : MyBabies){
+			s+=Baby.size();
+		}
+		return s;
+	}
+
+	@Override
+	public String absoluteAddress() {
+		return new String(Daddy.absoluteAddress()+name+"\\");
+	}
+
+	@Override
+	public void ls() {
+		for(ElementDeStockage Baby : MyBabies){
+			System.out.println(Baby.name);
+		}
+	}
+
+}

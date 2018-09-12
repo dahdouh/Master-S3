@@ -1,0 +1,16 @@
+package filesystem;
+
+public class RegularDirectory extends Directory {
+	private Directory Daddy;
+	
+	public RegularDirectory(String name,Directory daddy){
+		super(name);
+		this.Daddy=daddy;
+	}
+	
+
+	@Override
+	public String absoluteAddress() {
+		return new String(Daddy.absoluteAddress()+name+"\\");
+	}
+}

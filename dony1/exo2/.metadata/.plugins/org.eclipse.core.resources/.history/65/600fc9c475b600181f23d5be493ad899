@@ -1,0 +1,27 @@
+package filesystem;
+
+public abstract class root extends Directory {
+
+	public root(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String absoluteAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void ls() {
+		// TODO Auto-generated method stub
+
+	}
+}

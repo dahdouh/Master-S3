@@ -1,0 +1,23 @@
+package filesystem;
+
+public abstract class Directory extends ElementDeStockage {
+
+	@Override
+	int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	String absoluteAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	void ls() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,16 @@
+package filesystem;
+
+import java.util.ArrayList;
+
+public abstract class Directory extends ElementDeStockage {
+	protected ArrayList<Directory> MyBabies;
+	
+	public Directory(String name){
+		super(name);
+		this.MyBabies=new ArrayList<Directory>();
+	}
+	
+	protected int getBasicSize(){
+		return 4;
+	}
+}
