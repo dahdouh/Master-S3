@@ -1,7 +1,0 @@
-package filesystem;
-
-public abstract class ElementDeStockage {
-	abstract int size();
-	abstract String absoluteAddress();
-	abstract void ls();
-}
