@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tp1" nsURI="http://www.example.org/tp1" nsPrefix="tp1">
+  <eSubpackages name="Maps" nsURI="tp1" nsPrefix="tp1">
+    <eClassifiers xsi:type="ecore:EClass" name="map">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="roads" upperBound="-1"
+          eType="#//Maps/Road" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="spaces" upperBound="-1"
+          eType="#//Maps/PublicSpace" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PublicSpace" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="borderedBy" lowerBound="1"
+          upperBound="-1" eType="#//Maps/Road" eOpposite="#//Maps/Road/border"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Road" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="border" upperBound="-1"
+          eType="#//Maps/PublicSpace" eOpposite="#//Maps/PublicSpace/borderedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Street" eSuperTypes="#//Maps/Road"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Pedestrian" eSuperTypes="#//Maps/Road"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Square" eSuperTypes="#//Maps/PublicSpace"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Garden" eSuperTypes="#//Maps/PublicSpace"/>
+  </eSubpackages>
+</ecore:EPackage>

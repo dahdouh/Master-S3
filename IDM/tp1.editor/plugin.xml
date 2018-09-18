@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated tp1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="tp1.Maps.presentation.NewPackage1ModelWizardID"
+            name="%_UI_NewPackage1ModelWizard_label"
+            class="tp1.Maps.presentation.NewPackage1ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/NewPackage1ModelFile.gif">
+         <description>%_UI_NewPackage1ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated tp1 -->
+      <editor
+            id="tp1.Maps.presentation.NewPackage1EditorID"
+            name="%_UI_NewPackage1Editor_label"
+            icon="icons/full/obj16/NewPackage1ModelFile.gif"
+            extensions="newpackage1"
+            class="tp1.Maps.presentation.NewPackage1Editor"
+            contributorClass="tp1.Maps.presentation.NewPackage1ActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

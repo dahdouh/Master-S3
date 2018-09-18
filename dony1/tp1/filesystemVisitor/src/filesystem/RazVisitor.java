@@ -7,7 +7,7 @@ public class RazVisitor extends FSVisitor {
 
 	@Override
 	public void FileVisitor(File f) {
-		f.Content=null;
+		f.Content=new String();
 	}
 
 	@Override
