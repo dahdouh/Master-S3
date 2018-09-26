@@ -1,0 +1,82 @@
+
+class Prop{
+ public:
+  virtual bool eval()=0;
+  
+  bool isAtomic();
+  bool isBinary();
+  bool isTrue();
+  bool isFalse();
+  bool isVar();
+  bool isNot();
+  bool isAnd();
+  bool isOr();
+  bool isImply();
+  bool isEqual();
+};
+
+class BinaryOp : public Prop{
+ private:
+  Prop left;
+  Prop right;
+ public:
+  BinaryOp(Prop l,Prop r);
+  bool isBinary();
+};
+
+class And : BinaryOp{
+ public:
+  bool isAnd();
+};
+
+class Or : BinaryOp{
+ public:
+  bool isOr();
+};
+
+class Imply{
+ public:
+  bool isImply();
+};
+
+class isEqual(){
+ public:
+  bool isEqual();
+};
+
+class Atome : public Prop{
+};
+
+class True : public Atome{
+ public:
+  True();
+  bool isTrue();
+  bool eval();
+};
+
+class False : public Atome{
+ public:
+  False();
+  bool isFalse();
+  bool eval();
+};
+
+
+#include <string>
+
+class Var : public Atome{
+ private:
+  string name;
+ public:
+  Var(string n);
+  bool isVar();
+  bool eval();
+};
+
+
+class Not : public Prop{
+ public:
+  Not();
+  bool isNot();
+  bool eval();
+};
