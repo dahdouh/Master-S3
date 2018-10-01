@@ -1,1 +1,1 @@
-i:=IDM new.i idmPile.
+i:=IDM new.i idmPile.Pile addSelector: #grow withMethod: (PileGrossissante  compiledMethodAt: #grow).
