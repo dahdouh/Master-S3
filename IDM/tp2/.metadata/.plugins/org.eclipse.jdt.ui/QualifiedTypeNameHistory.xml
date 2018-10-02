@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.PackageableElement"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.AttributeOwner"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.Property"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.VisibilityKind"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.UMLFactory"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.ParameterDirectionKind"/>
+</qualifiedTypeNameHistroy>
