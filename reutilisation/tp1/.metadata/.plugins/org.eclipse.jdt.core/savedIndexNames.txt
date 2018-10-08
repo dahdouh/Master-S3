@@ -1,3 +1,0 @@
-INDEX VERSION 1.129+/auto_home/pmissechanab/Master-S3/reutilisation/tp1/.metadata/.plugins/org.eclipse.jdt.core
-3977579105.index
-2924570165.index

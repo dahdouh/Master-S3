@@ -1,6 +1,6 @@
 package item;
 
-public class File extends FilesystemItem
+public class File extends FilesystemItem implements fsi
 {
 	protected String content ;
 	protected int size ;
@@ -11,6 +11,10 @@ public class File extends FilesystemItem
 		this.setSize(this.content.length());
 	}
 	
+	/* (non-Javadoc)
+	 * @see item.fsi#getSize()
+	 */
+	@Override
 	public int getSize(){
 		return this.size;
 	}
@@ -19,14 +23,26 @@ public class File extends FilesystemItem
 		this.size = size;
 	}
 	
+	/* (non-Javadoc)
+	 * @see item.fsi#getName()
+	 */
+	@Override
 	public String getName(){
 		return this.name;
 	}
 	
+	/* (non-Javadoc)
+	 * @see item.fsi#setContent(java.lang.String)
+	 */
+	@Override
 	public void setContent(String content) {
 		this.content = content;
 	}
 	
+	/* (non-Javadoc)
+	 * @see item.fsi#someOtherMethod()
+	 */
+	@Override
 	public void someOtherMethod() {
 	}
 	

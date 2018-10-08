@@ -1,7 +1,7 @@
 Type de refactor : "move several type" ou "move type" sous eclipse.
 
-(1) Passage de la classe interne roue, à une classe standalone.
-(2) -Click droit sur la classe roue
+(1) Passage de la classe interne "roue", à une classe standalone.
+(2) -Click droit sur la classe "roue"
     -Refactor -> Move Type to new file
     -[ok]
 (3) Ceci permet de réutiliser une classe initiallement interne dans d'autres parties du programme, ce qui peut arriver lors d'évolution du programme, ou un problème de conception.
