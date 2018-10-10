@@ -1,1 +1,1 @@
-i:=IDM new.i idmPile.Pile addSelector: #grow withMethod: (PileGrossissante  compiledMethodAt: #grow).
+i:=IDM new.i idmPile.Smalltalk removeClassNamed: #PileGrossissante.Pile addSelector: #grow withMethod: (PileGrossissante  compiledMethodAt: #grow).

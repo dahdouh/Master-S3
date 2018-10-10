@@ -1,0 +1,1 @@
+IDM new idmPile.p:=[Transcript show:'pouetitpean';cr.].p value.
