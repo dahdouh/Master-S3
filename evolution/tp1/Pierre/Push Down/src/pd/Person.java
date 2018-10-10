@@ -1,19 +1,24 @@
 package pd;
 
 public class Person {
-	public boolean IsStudent;
 	
-	public Person(boolean isStudent){
-		this.IsStudent=isStudent;
+	protected int skill; //n'augmente qu'en étudiant mais est utile par contre pour le travail
+
+	public Person(){
+	
 	}
 	
-	public void doStuff(){
-		if(this.IsStudent){
-			//Do some stuffs
+	public boolean getJob() {
+		if(skill>2) {
+			return true;
 		}
-		else{
-			//Do some other stuffs
+		else {
+			return false;
 		}
+	}
+    
+    	public void Etudier() {
+		skill++;
 	}
 	
 }
