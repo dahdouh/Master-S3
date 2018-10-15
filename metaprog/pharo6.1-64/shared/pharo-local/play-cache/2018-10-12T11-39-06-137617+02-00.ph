@@ -1,0 +1,1 @@
+Smalltalk vm addClass: ((LinkedList class)=LinkedList class)
