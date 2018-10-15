@@ -1,0 +1,1 @@
+Transcript show: (#pouet catch:[Transcript show:thisContext class;cr.#pouet returnToCatchWith: 'troll'.]); cr.
