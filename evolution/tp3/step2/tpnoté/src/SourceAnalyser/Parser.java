@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+import org.eclipse.core.internal.localstore.Bucket.Visitor;
 import org.eclipse.core.internal.utils.FileUtil;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -15,6 +16,7 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
+import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
@@ -39,22 +41,30 @@ public class Parser {
 		ArrayList<File> javaFiles = listJavaFilesForFolder(folder);
 
 		//
+		AppliAST visit1=new AppliAST();
 		for (File fileEntry : javaFiles) {
 			String content = FileUtils.readFileToString(fileEntry);
 			// System.out.println(content);
 
 			CompilationUnit parse = parse(content.toCharArray());
 
+			
+			GenericVisit(parse, visit1);
+			
 			// print methods info
-			printMethodInfo(parse);
+/*			printMethodInfo(parse);
 
 			// print variables info
 			printVariableInfo(parse);
 			
 			//print method invocations
-			printMethodInvocationInfo(parse);
+			printMethodInvocationInfo(parse);*/
 
 		}
+		System.out.println(visit1.toString());
+		System.out.println(visit1.nbClass());
+		System.out.println(visit1.nbMethodTotal());
+		System.out.println(visit1.AverageNbMethodByClass());
 	}
 
 	// read all java files from specific folder
@@ -145,4 +155,7 @@ public class Parser {
 			}
 		}
 
+	public static void GenericVisit(CompilationUnit parse,ASTVisitor visitor) {
+		parse.accept(visitor);
+	}
 }
