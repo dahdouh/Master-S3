@@ -42,13 +42,12 @@ public class Parser {
 
 		//
 		AppliAST visit1=new AppliAST();
+		
 		for (File fileEntry : javaFiles) {
 			String content = FileUtils.readFileToString(fileEntry);
 			// System.out.println(content);
 
 			CompilationUnit parse = parse(content.toCharArray());
-
-			
 			GenericVisit(parse, visit1);
 			
 			// print methods info
@@ -61,10 +60,12 @@ public class Parser {
 			printMethodInvocationInfo(parse);*/
 
 		}
-		System.out.println(visit1.toString());
-		System.out.println(visit1.nbClass());
-		System.out.println(visit1.nbMethodTotal());
-		System.out.println(visit1.AverageNbMethodByClass());
+		System.out.println("Classes:"+visit1.toString());
+		System.out.println("=>"+visit1.nbClass()+" classes différentes.");
+		System.out.println("Avec un total de "+visit1.nbMethodTotal()+" méthodes.");
+		System.out.println("Donnant une moyenne de "+visit1.AverageNbMethodByClass()+" méthodes par classes.");
+		System.out.println("Ainsi qu'une moyenne de "+visit1.AverageFieldsByClass()+" attributs par classes.");
+		System.out.println("Ce programmes importe :"+visit1.getNbOfUniqueImport()+" packages différents.");
 	}
 
 	// read all java files from specific folder

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.eclipse.jdt.core.dom.*;
 
+/*
 public class ClassAST {
 	private ArrayList<MethodAST> methodAST;
 	private ArrayList<FieldDeclaration> attributes;
@@ -33,4 +34,4 @@ public class ClassAST {
 	}
 
 }
-
+*/

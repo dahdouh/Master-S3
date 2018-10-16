@@ -1,6 +1,7 @@
 package SourceAnalyser;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.*;
@@ -9,14 +10,17 @@ import org.eclipse.jdt.core.dom.*;
 public class AppliAST extends ASTVisitor{
 	private ArrayList<TypeDeclaration> classAST;
 	private ArrayList<TypeDeclaration> interfaceAST;
+	private HashSet<String> imports;
 	
-	public AppliAST() {
+	public AppliAST(){
 		super();
 		this.classAST = new ArrayList<>();
 		this.interfaceAST = new ArrayList<>();
+		this.imports = new HashSet<>();
 	}
 	
-	@Override
+	
+	@Override//classes déclarations
 	public boolean visit(TypeDeclaration node) {
 		if(node.isInterface()) {
 			interfaceAST.add(node);
@@ -27,12 +31,30 @@ public class AppliAST extends ASTVisitor{
 		return true;
 	}
 	
+	public boolean visit(ImportDeclaration node) {
+		imports.add(node.getName().toString());
+		return true;
+	}
+	
 	public int nbMethodTotal(){
 		int cmpt=0;
 		for(TypeDeclaration c: classAST) {
 			cmpt+=c.getMethods().length;
 		}
 		return cmpt;
+	}
+	
+	
+	public int nbFieldTotal(){
+		int cmpt=0;
+		for(TypeDeclaration c: classAST) {
+			cmpt+=c.getFields().length;
+		}
+		return cmpt;
+	}
+
+	public int AverageFieldsByClass() {
+		return nbFieldTotal()/nbClass();
 	}
 	
 	public int AverageNbMethodByClass() {
@@ -60,6 +82,10 @@ public class AppliAST extends ASTVisitor{
 	@Override
 	public String toString(){
 		return this.getClassesNames();
+	}
+	
+	public int getNbOfUniqueImport() {
+		return imports.size();
 	}
 }
 
