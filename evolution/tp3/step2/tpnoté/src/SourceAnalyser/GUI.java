@@ -8,19 +8,19 @@ import javax.swing.*;
 public class GUI {
 
 	private String[] outputPhrases= {
-			"1 Nombre de classes de l'applications",//1
-			"2  Nombre de lignes de code de l'applications",//2
-			"3  Nombre	total de méthodes de l’application",//3
-			"4  Nombre	total de packages de l’application",//4
-			"5  Nombre	moyen de méthodes par classe",//5
-			"6  Nombre	moyen de lignes de code par méthode",//6
-			"7  Nombre	moyen d’attributs par classe",//7
-			"8  Les 10% des classes qui possèdent le plus grand nombre de méthodes",//8
-			"9  Les 10% des classes qui possèdent le plus grand nombre d’attributs",//9
-			"10 Les classes qui font partie en	même temps les deux catégories précédentes",//10
-			"11 Les classes qui possèdent plus de X méthodes (la valeur	de X est donnée)",//11
-			"12 Les 10% des méthodes qui possèdent le plus grand nombre de lignes de code (par classe)",//12
-			"13 Le nombre maximal de paramètres par rapport à toute les méthodes de l’application"//13
+			"#1 Nombre de classes de l'applications",//1
+			"#2  Nombre de lignes de code de l'applications",//2
+			"#3  Nombre	total de méthodes de l’application",//3
+			"#4  Nombre	total de packages de l’application",//4
+			"#5  Nombre	moyen de méthodes par classe",//5
+			"#6  Nombre	moyen de lignes de code par méthode",//6
+			"#7  Nombre	moyen d’attributs par classe",//7
+			"#8  Les 10% des classes qui possèdent le plus grand nombre de méthodes",//8
+			"#9  Les 10% des classes qui possèdent le plus grand nombre d’attributs",//9
+			"#10 Les classes qui font partie en	même temps les deux catégories précédentes",//10
+			"#11 Les classes qui possèdent plus de X méthodes (la valeur	de X est donnée)",//11
+			"#12 Les 10% des méthodes qui possèdent le plus grand nombre de lignes de code (par classe)",//12
+			"#13 Le nombre maximal de paramètres par rapport à toute les méthodes de l’application"//13
 			};
 	
 	static final private int basicHeight=10;

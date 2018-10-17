@@ -40,7 +40,7 @@ public class Parser {
 		final File folder = new File(projectSourcePath);
 		ArrayList<File> javaFiles = listJavaFilesForFolder(folder);
 
-		AppliAST visit1=new AppliAST();
+		CodeStatistiqueVisitor visitor=new CodeStatistiqueVisitor();
 		GUI g=new GUI();
 		g.checkboxShow();
 		
@@ -49,27 +49,32 @@ public class Parser {
 			// System.out.println(content);
 
 			CompilationUnit parse = parse(content.toCharArray());
-			GenericVisit(parse, visit1);
+			GenericVisit(parse, visitor);
 		}
 		
 		if(g.at(0))//check the correspondance with numbers. Should be in gui anyway.
-			System.out.println("Classes:"+visit1.toString());
+			System.out.println("Classes:"+visitor.toString());
 		if(g.at(1))
-			System.out.println("=>"+visit1.nbClass()+" classes différentes.");
+			System.out.println("=>"+visitor.nbClass()+" classes différentes.");
 		if(g.at(2))
-			System.out.println("Avec un total de "+visit1.nbMethodTotal()+" méthodes.");
+			System.out.println("Avec un total de "+visitor.nbMethodTotal()+" méthodes.");
 		if(g.at(3))	
-			System.out.println("Donnant une moyenne de "+visit1.AverageNbMethodByClass()+" méthodes par classes.");
+			System.out.println("Donnant une moyenne de "+visitor.AverageNbMethodByClass()+" méthodes par classes.");
 		if(g.at(4))
-			System.out.println("Ainsi qu'une moyenne de "+visit1.AverageFieldsByClass()+" attributs par classes.");
+			System.out.println("Ainsi qu'une moyenne de "+visitor.AverageFieldsByClass()+" attributs par classes.");
 		if(g.at(5))
-			System.out.println("Ce programmes importe : "+visit1.getNbOfUniqueImport()+" packages différents.");
+			System.out.println("Ce programmes importe : "+visitor.getNbOfUniqueImport()+" packages différents.");
 		if(g.at(6))
-			System.out.println("Les 20% de classes aillant le plus d'attributs sont: "+visit1.getPercentileSortByFieldsAsString(20)+".");
-		if(g.at(6)) 
-			System.out.println("Les 20% de classes aillant le plus de méthodes sont: "+visit1.getPercentileSortByMethodsAsString(20)+".");
-		if(g.at(6))
-			System.out.println("Et celles appartenants à ces deux ensembles sonts: "+visit1.GetPercentileSortByFieldsAndMethodsAsString(20)+".");
+			System.out.println("Les 20% de classes aillant le plus d'attributs sont: "+visitor.getPercentileSortByFieldsAsString(20)+".");
+		if(g.at(7)) 
+			System.out.println("Les 20% de classes aillant le plus de méthodes sont: "+visitor.getPercentileSortByMethodsAsString(20)+".");
+		if(g.at(8))
+			System.out.println("Et celles appartenants à ces deux ensembles sonts: "+visitor.GetPercentileSortByFieldsAndMethodsAsString(20)+".");
+		if(g.at(9))
+			System.out.println("Les classes aillant plus de "+5+" methodes sont: "+visitor.getClassesByNbMethodMinAsString(5)+".");
+		if(g.at(10)) {
+			System.out.println(visitor.getMaxParameterMethodAsString());
+		}
 	}
 
 	// read all java files from specific folder
