@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
-import org.eclipse.core.internal.localstore.Bucket.Visitor;
+/*import org.eclipse.core.internal.localstore.Bucket.Visitor;
 import org.eclipse.core.internal.utils.FileUtil;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.ICompilationUnit;*/
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
@@ -24,9 +24,9 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public class Parser {
 	
-	public static final String projectPath = "./";
-	public static final String projectSourcePath = projectPath + "src";
-	public static final String jrePath = "/usr/lib/jvm/java-8-openjdk-amd64/jre";
+	public static String projectPath = "./";
+	public static String projectSourcePath = projectPath + "src";
+	public static String jrePath = "/usr/lib/jvm/java-8-openjdk-amd64/jre";
 	//public static final String jrePath = "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java";
 
 /*	public static final String projectPath = "C:\\Users\\zakarea.alshara\\osgi_workspace\\projectToParse";
@@ -40,8 +40,9 @@ public class Parser {
 		final File folder = new File(projectSourcePath);
 		ArrayList<File> javaFiles = listJavaFilesForFolder(folder);
 
-		//
 		AppliAST visit1=new AppliAST();
+		GUI g=new GUI();
+		g.checkboxShow();
 		
 		for (File fileEntry : javaFiles) {
 			String content = FileUtils.readFileToString(fileEntry);
@@ -49,23 +50,26 @@ public class Parser {
 
 			CompilationUnit parse = parse(content.toCharArray());
 			GenericVisit(parse, visit1);
-			
-			// print methods info
-/*			printMethodInfo(parse);
-
-			// print variables info
-			printVariableInfo(parse);
-			
-			//print method invocations
-			printMethodInvocationInfo(parse);*/
-
 		}
-		System.out.println("Classes:"+visit1.toString());
-		System.out.println("=>"+visit1.nbClass()+" classes différentes.");
-		System.out.println("Avec un total de "+visit1.nbMethodTotal()+" méthodes.");
-		System.out.println("Donnant une moyenne de "+visit1.AverageNbMethodByClass()+" méthodes par classes.");
-		System.out.println("Ainsi qu'une moyenne de "+visit1.AverageFieldsByClass()+" attributs par classes.");
-		System.out.println("Ce programmes importe :"+visit1.getNbOfUniqueImport()+" packages différents.");
+		
+		if(g.at(0))//check the correspondance with numbers. Should be in gui anyway.
+			System.out.println("Classes:"+visit1.toString());
+		if(g.at(1))
+			System.out.println("=>"+visit1.nbClass()+" classes différentes.");
+		if(g.at(2))
+			System.out.println("Avec un total de "+visit1.nbMethodTotal()+" méthodes.");
+		if(g.at(3))	
+			System.out.println("Donnant une moyenne de "+visit1.AverageNbMethodByClass()+" méthodes par classes.");
+		if(g.at(4))
+			System.out.println("Ainsi qu'une moyenne de "+visit1.AverageFieldsByClass()+" attributs par classes.");
+		if(g.at(5))
+			System.out.println("Ce programmes importe : "+visit1.getNbOfUniqueImport()+" packages différents.");
+		if(g.at(6))
+			System.out.println("Les 20% de classes aillant le plus d'attributs sont: "+visit1.getPercentileSortByFieldsAsString(20)+".");
+		if(g.at(6)) 
+			System.out.println("Les 20% de classes aillant le plus de méthodes sont: "+visit1.getPercentileSortByMethodsAsString(20)+".");
+		if(g.at(6))
+			System.out.println("Et celles appartenants à ces deux ensembles sonts: "+visit1.GetPercentileSortByFieldsAndMethodsAsString(20)+".");
 	}
 
 	// read all java files from specific folder
