@@ -1,8 +1,6 @@
 package SourceAnalyser;
 
 import java.util.ArrayList;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import javax.swing.*;
 
 public class GUI {

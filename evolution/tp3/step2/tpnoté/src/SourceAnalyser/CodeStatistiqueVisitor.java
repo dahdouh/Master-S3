@@ -11,12 +11,13 @@ import SourceAnalyser.ClassComparator.comparaisonType;
 import org.eclipse.jdt.core.dom.*;
 
 
+
 //Exo1
 public class CodeStatistiqueVisitor extends ASTVisitor{
 	private ArrayList<TypeDeclaration> classAST;
 	private ArrayList<TypeDeclaration> interfaceAST;
 	private HashSet<String> imports;
-	
+
 	
 	public CodeStatistiqueVisitor(){
 		super();
@@ -57,6 +58,15 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 		}
 		return result;
 	}
+	
+	//#2 We assume that line number is what's contained in classes. So we don't count imports/out of class Comments 
+	public int programLineNumber() {
+		int res=0;
+		
+		
+		return res;
+	}
+	
 
 	
 	//#3
@@ -127,8 +137,9 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 		return res;
 	}
 
+	@SuppressWarnings("unchecked")
 	private ArrayList<TypeDeclaration> sortBy(comparaisonType type){
-		ArrayList<TypeDeclaration> res=(ArrayList)classAST.clone();
+		ArrayList<TypeDeclaration> res=(ArrayList<TypeDeclaration>)classAST.clone();
 		res.sort(new ClassComparator(type));
 		return res;
 	}

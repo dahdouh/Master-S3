@@ -18,9 +18,9 @@ import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
+/*import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
-import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+import org.eclipse.jdt.core.dom.VariableDeclarationFragment;*/
 
 public class Parser {
 	
@@ -100,6 +100,7 @@ public class Parser {
  
 		parser.setBindingsRecovery(true);
  
+		@SuppressWarnings("rawtypes")
 		Map options = JavaCore.getOptions();
 		parser.setCompilerOptions(options);
  
@@ -114,6 +115,7 @@ public class Parser {
 		return (CompilationUnit) parser.createAST(null); // create and parse
 	}
 
+	/*
 	// navigate method information
 	public static void printMethodInfo(CompilationUnit parse) {
 		MethodDeclarationVisitor visitor = new MethodDeclarationVisitor();
@@ -164,7 +166,7 @@ public class Parser {
 
 			}
 		}
-
+*/
 	public static void GenericVisit(CompilationUnit parse,ASTVisitor visitor) {
 		parse.accept(visitor);
 	}

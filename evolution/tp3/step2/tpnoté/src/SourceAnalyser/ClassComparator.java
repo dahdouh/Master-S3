@@ -2,7 +2,7 @@ package SourceAnalyser;
 
 import java.util.Comparator;
 
-import javax.management.RuntimeErrorException;
+
 
 import org.eclipse.jdt.core.dom.*;
 
