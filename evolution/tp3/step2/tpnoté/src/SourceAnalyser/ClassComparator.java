@@ -10,6 +10,7 @@ public class ClassComparator implements Comparator<TypeDeclaration> {
 
 	public enum comparaisonType{
 		METHODS_NUMBER,
+		LINE_NUMBER,
 		FIELDS_NUMBER
 	}
 	
@@ -24,7 +25,6 @@ public class ClassComparator implements Comparator<TypeDeclaration> {
 	public int compare(TypeDeclaration arg0, TypeDeclaration arg1) {
 		switch(this.t) {
 			case METHODS_NUMBER:
-
 				return Integer.compare(arg0.getMethods().length,arg1.getMethods().length);
 				
 			//case FIELDS_NUMBER://Default by fields.

@@ -59,10 +59,15 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 		return result;
 	}
 	
-	//#2 We assume that line number is what's contained in classes. So we don't count imports/out of class Comments 
+	//#2 we reduce line number to as statement, which is what will be executed anyway. 
 	public int programLineNumber() {
-		int res=0;
-		
+		int res=0;//Not the most efficient, but fonctionnal
+			
+		for(TypeDeclaration t: classAST) {
+			LineCounterVisitor lv=new LineCounterVisitor();
+			t.accept(lv);
+			res+=lv.getCounter();
+		}
 		
 		return res;
 	}
@@ -89,8 +94,24 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 		return nbMethodTotal()/nbClass();
 	}
 
-	//#7
+	//#6
+	public int AverageLineNumberPerMethods() {
+		int MethodNumber=0;//Not the most efficient, but fonctional
+		
+		for(TypeDeclaration c: classAST) {
+			MethodNumber+=c.getMethods().length;
+		}
+		
+		if(MethodNumber>0) {
+			return this.programLineNumber()/MethodNumber;
+		}
+		else {
+			return -1;//error case, even if it's unlikely we ever get a program without method to analyse.
+		}
+	}
 	
+	
+	//#7
 	public int AverageFieldsByClass() {
 		return nbFieldTotal()/nbClass();
 	}
@@ -193,6 +214,53 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 		return res;
 	}
 
+
+	//#12
+	public String  getMethodPercentileSortByLineNumberAsString(int taux){
+		assert(taux>0 && taux<100);
+		return methodDeclarationToString((restrainMethods(taux)));
+	}
+	
+	private ArrayList<MethodDeclaration> restrainMethods(int taux){
+		ArrayList<MethodDeclaration> res=new ArrayList<>();
+		ArrayList<MethodDeclaration> sorted=getMethodSortedByNumberOfLines();
+		for(int i=sorted.size()-1;i>=sorted.size()-(sorted.size()*taux)/100;i--) {
+			res.add(sorted.get(i));
+		}
+		
+		return res;
+	}
+	
+	private ArrayList<MethodDeclaration> getMethodSortedByNumberOfLines() {
+		ArrayList<MethodDeclaration> res=new ArrayList<>();
+		ArrayList<MethodLineNumberType> ArrayToSort=new ArrayList<>();
+		
+		for(TypeDeclaration c: classAST) {
+			for(MethodDeclaration m : c.getMethods()) {
+				LineCounterVisitor lv=new LineCounterVisitor();
+				m.accept(lv);
+				ArrayToSort.add(new MethodLineNumberType(m,lv.getCounter()));
+				
+			}
+		}
+		ArrayToSort.sort(new LineNumberComparator());
+		
+		for(MethodLineNumberType m : ArrayToSort) {
+			res.add(m.getM());
+		}
+		
+		return res;
+	}
+	
+	private String methodDeclarationToString(AbstractCollection<MethodDeclaration> collection) {
+		String res="";
+		for(MethodDeclaration i: collection){
+			res+=" "+i.getName();
+		}
+		
+		return res;
+	}
+	
 	//#13
 	public String getMaxParameterMethodAsString() {//To show both the max & the associated Identifier. showing Identifier's class is a bit bothering, maybe later
 		MethodDeclaration res=getMaxParamMethod();
@@ -220,13 +288,11 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 
 
 	
-	
-
 	//others
 	public ArrayList<TypeDeclaration> getClassAST() {
 		return classAST;
 	}
-
+	
 	
 	@Override
 	public String toString(){
@@ -235,10 +301,11 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 	
 }
 
+//Just for testing
 abstract class a{
 	
 }
-
+//Just for testing
 interface i{
 	
 }

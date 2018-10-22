@@ -75,6 +75,15 @@ public class Parser {
 		if(g.at(10)) {
 			System.out.println(visitor.getMaxParameterMethodAsString());
 		}
+		if(g.at(11)) {
+			System.out.println("Le programme contient "+ visitor.programLineNumber()+" lignes.");
+		}
+		if(g.at(12)) {
+			System.out.println("Le programme contient en moyenne "+ visitor.AverageLineNumberPerMethods()+" lignes par méthodes.");
+		}
+		if(g.at(12)) {
+			System.out.println("Les 10% de methodes aillant le plus de lignes de codes sont: "+visitor.getMethodPercentileSortByLineNumberAsString(10)+".");
+		}
 	}
 
 	// read all java files from specific folder
@@ -166,7 +175,7 @@ public class Parser {
 
 			}
 		}
-*/
+	*/
 	public static void GenericVisit(CompilationUnit parse,ASTVisitor visitor) {
 		parse.accept(visitor);
 	}
