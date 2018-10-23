@@ -1,7 +1,4 @@
 digraph{
-visit -> isDeclaration
-visit -> resolveBinding
-visit -> add
 equals -> equals
 equals -> equals
 createGraphString -> isEmpty
@@ -36,9 +33,6 @@ add -> add
 compare -> compare
 compare -> getLineNb
 compare -> getLineNb
-visit -> isDeclaration
-visit -> resolveBinding
-visit -> add
 visit -> isInterface
 visit -> add
 visit -> add
@@ -110,6 +104,15 @@ getMaxParameterMethodAsString -> getName
 getMaxParamMethod -> getMethods
 getMaxParamMethod -> size
 getMaxParamMethod -> parameters
+fullCallGraph -> getMethods
+fullCallGraph -> accept
+fullCallGraph -> getMethods
+fullCallGraph -> toString
+fullCallGraph -> getName
+fullCallGraph -> toString
+fullCallGraph -> getName
+fullCallGraph -> add
+fullCallGraph -> generate
 toString -> getClassesNames
 checkboxShow -> setBounds
 checkboxShow -> add
@@ -129,8 +132,6 @@ main -> readFileToString
 main -> parse
 main -> toCharArray
 main -> GenericVisit
-main -> printMethodInvocationInfo
-main -> generate
 main -> at
 main -> println
 main -> toString
@@ -173,6 +174,7 @@ main -> AverageLineNumberPerMethods
 main -> at
 main -> println
 main -> getMethodPercentileSortByLineNumberAsString
+main -> fullCallGraph
 listJavaFilesForFolder -> listFiles
 listJavaFilesForFolder -> isDirectory
 listJavaFilesForFolder -> addAll
@@ -206,7 +208,6 @@ compare -> getMethods
 compare -> compare
 compare -> getFields
 compare -> getFields
-visit -> add
 visit -> add
 
  }

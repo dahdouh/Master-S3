@@ -44,8 +44,7 @@ public class Parser {
 		CodeStatistiqueVisitor visitor=new CodeStatistiqueVisitor();
 		GUI g=new GUI();
 		g.checkboxShow();
-		
-		CallGraphGenerator cgg = new CallGraphGenerator();
+	
 		
 		for (File fileEntry : javaFiles) {
 			String content = FileUtils.readFileToString(fileEntry);
@@ -53,14 +52,12 @@ public class Parser {
 
 			CompilationUnit parse = parse(content.toCharArray());
 			GenericVisit(parse, visitor);
-			printMethodInvocationInfo(parse, cgg);
 		}
 	
 		/**
 		 * @move
 		 */
-		cgg.generate();
-		
+				
 		//#1 isn't in the questions, so we have twice #12
 		
 		if(g.at(0))//check the correspondance with numbers. Should be in gui anyway.
@@ -94,6 +91,10 @@ public class Parser {
 		}
 		if(g.at(12)) {
 			System.out.println("Les 10% de methodes aillant le plus de lignes de codes sont: "+visitor.getMethodPercentileSortByLineNumberAsString(10)+".");
+		}
+		
+		if(true) {//Add condition callGraph
+			visitor.fullCallGraph();		
 		}
 		
 	}
@@ -168,7 +169,7 @@ public class Parser {
 			}
 
 		}
-	}*/
+	}
 	
 	// navigate method invocations inside method
 		public static void printMethodInvocationInfo(CompilationUnit parse, CallGraphGenerator cgg) {
@@ -187,7 +188,7 @@ public class Parser {
 
 			}
 		}
-	
+	*/
 	public static void GenericVisit(CompilationUnit parse,ASTVisitor visitor) {
 		parse.accept(visitor);
 	}

@@ -70,7 +70,7 @@ public class LineCounterVisitor extends ASTVisitor {
 	
 	public boolean visit(ReturnStatement node) {
 		counter++;
-		return false;
+		return true;
 	}
 	
 	public boolean visit(ThrowStatement node) {

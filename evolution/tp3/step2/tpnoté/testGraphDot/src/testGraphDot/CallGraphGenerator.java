@@ -6,8 +6,6 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-import SourceAnalyser.Transition;
-
 /**
  * 
  * @author rogliano
@@ -63,10 +61,8 @@ public class CallGraphGenerator {
 		try {
 			writer = new PrintWriter("graphGenerated.dot", "UTF-8");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 			writer.println(graph);writer.flush();
@@ -92,12 +88,11 @@ public class CallGraphGenerator {
 		try {
 			run .exec("./instru.sh");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	
+	/*
 	public static void main(String[] args) {
 		System.out.println("Created class call graph");
 		CallGraphGenerator g = new CallGraphGenerator ();
@@ -107,6 +102,6 @@ public class CallGraphGenerator {
 		g.writeGrapheInFile();
 		System.out.println("Call to dot");
 		g.callDot();
-	}
+	}*/
 
 }
