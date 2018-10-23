@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import SourceAnalyser.Transition;
+
 /**
  * 
  * @author rogliano
