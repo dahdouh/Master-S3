@@ -21,6 +21,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 /*import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;*/
+import org.eclipse.jdt.core.dom.*;
 
 public class Parser {
 	
@@ -44,13 +45,21 @@ public class Parser {
 		GUI g=new GUI();
 		g.checkboxShow();
 		
+		CallGraphGenerator cgg = new CallGraphGenerator();
+		
 		for (File fileEntry : javaFiles) {
 			String content = FileUtils.readFileToString(fileEntry);
 			// System.out.println(content);
 
 			CompilationUnit parse = parse(content.toCharArray());
 			GenericVisit(parse, visitor);
+			printMethodInvocationInfo(parse, cgg);
 		}
+	
+		/**
+		 * @move
+		 */
+		cgg.generate();
 		
 		//#1 isn't in the questions, so we have twice #12
 		
@@ -86,6 +95,7 @@ public class Parser {
 		if(g.at(12)) {
 			System.out.println("Les 10% de methodes aillant le plus de lignes de codes sont: "+visitor.getMethodPercentileSortByLineNumberAsString(10)+".");
 		}
+		
 	}
 
 	// read all java files from specific folder
@@ -158,10 +168,10 @@ public class Parser {
 			}
 
 		}
-	}
+	}*/
 	
 	// navigate method invocations inside method
-		public static void printMethodInvocationInfo(CompilationUnit parse) {
+		public static void printMethodInvocationInfo(CompilationUnit parse, CallGraphGenerator cgg) {
 
 			MethodDeclarationVisitor visitor1 = new MethodDeclarationVisitor();
 			parse.accept(visitor1);
@@ -171,13 +181,13 @@ public class Parser {
 				method.accept(visitor2);
 
 				for (MethodInvocation methodInvocation : visitor2.getMethods()) {
-					System.out.println("method " + method.getName() + " invoc method "
-							+ methodInvocation.getName());
+					Transition toAdd = new Transition (methodInvocation.getName().toString(),method.getName().toString());
+					cgg.add(toAdd);
 				}
 
 			}
 		}
-	*/
+	
 	public static void GenericVisit(CompilationUnit parse,ASTVisitor visitor) {
 		parse.accept(visitor);
 	}
