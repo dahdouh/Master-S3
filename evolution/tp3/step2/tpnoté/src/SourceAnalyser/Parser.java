@@ -52,6 +52,8 @@ public class Parser {
 			GenericVisit(parse, visitor);
 		}
 		
+		//#1 isn't in the questions, so we have twice #12
+		
 		if(g.at(0))//check the correspondance with numbers. Should be in gui anyway.
 			System.out.println("Classes:"+visitor.toString());
 		if(g.at(1))
