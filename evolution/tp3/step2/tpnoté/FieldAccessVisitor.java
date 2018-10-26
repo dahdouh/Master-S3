@@ -1,4 +1,4 @@
-package step2;
+package SourceAnalyser;
 
 import java.util.ArrayList;
 import java.util.List;

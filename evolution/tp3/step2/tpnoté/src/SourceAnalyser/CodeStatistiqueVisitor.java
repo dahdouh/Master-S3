@@ -4,8 +4,6 @@ import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import org.eclipse.jdt.core.dom.ASTVisitor;
-
 import SourceAnalyser.ClassComparator.comparaisonType;
 
 import org.eclipse.jdt.core.dom.*;
@@ -35,7 +33,7 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 		else {
 			classAST.add(node);
 		}
-		return true;
+		return true;//We still have to parse the classes, in case we have inner classes/interfaces...
 	}
 	
 	@Override
@@ -286,8 +284,25 @@ public class CodeStatistiqueVisitor extends ASTVisitor{
 	}
 	
 
+	//#Call Graph question
+	public void fullCallGraph() {
+		CallGraphGenerator cgg = new CallGraphGenerator();
+		
+		for(TypeDeclaration c : this.classAST) {
+			for (MethodDeclaration method : c.getMethods()) {
 
-	
+				MethodInvocationVisitor visitor2= new MethodInvocationVisitor();
+				method.accept(visitor2);
+
+				for (MethodInvocation methodInvocation : visitor2.getMethods()) {
+					Transition toAdd = new Transition (methodInvocation.getName().toString(),method.getName().toString());
+					cgg.add(toAdd);
+				}
+			}
+		}
+		cgg.generate();
+	}
+
 	//others
 	public ArrayList<TypeDeclaration> getClassAST() {
 		return classAST;
