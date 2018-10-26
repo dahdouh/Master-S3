@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/tp.metaprogramming.memo/src" modelPluginID="tp.metaprogramming.memo"
+    modelName="Memo" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>memo.ecore</foreignModel>
+  <genPackages prefix="Memo" disposableProviderFactory="true" ecorePackage="memo.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="memo.ecore#//AutomobileType">
+      <genEnumLiterals ecoreEnumLiteral="memo.ecore#//AutomobileType/BMW"/>
+      <genEnumLiterals ecoreEnumLiteral="memo.ecore#//AutomobileType/Mercedes"/>
+      <genEnumLiterals ecoreEnumLiteral="memo.ecore#//AutomobileType/Audi"/>
+      <genEnumLiterals ecoreEnumLiteral="memo.ecore#//AutomobileType/Citroen"/>
+      <genEnumLiterals ecoreEnumLiteral="memo.ecore#//AutomobileType/Renault"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="memo.ecore#//Memoclass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memo.ecore#//Memoclass/instances"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="memo.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memo.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="memo.ecore#//World">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference memo.ecore#//World/automobiles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference memo.ecore#//World/population"/>
+    </genClasses>
+    <genClasses ecoreClass="memo.ecore#//Person">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memo.ecore#//Person/age"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference memo.ecore#//Person/has"/>
+      <genOperations ecoreOperation="memo.ecore#//Person/birthday"/>
+    </genClasses>
+    <genClasses ecoreClass="memo.ecore#//Automobile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memo.ecore#//Automobile/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
