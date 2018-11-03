@@ -1,0 +1,1 @@
+ObjTest new setUp.Transcript show:'pouet'.
