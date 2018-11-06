@@ -1,6 +1,5 @@
 package memo;
 import memo.MemoFactory;
-import memo.impl.MemoFactoryImpl;
 
 public class Main {
 	public static void main(String[] args) {
