@@ -6,4 +6,12 @@
 <fullyQualifiedTypeName name="org.eclipse.uml2.uml.VisibilityKind"/>
 <fullyQualifiedTypeName name="org.eclipse.uml2.uml.UMLFactory"/>
 <fullyQualifiedTypeName name="org.eclipse.uml2.uml.ParameterDirectionKind"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.BehavioredClassifier"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.StateMachine"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.internal.impl.StateMachineImpl"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.Pseudostate"/>
+<fullyQualifiedTypeName name="org.eclipse.uml2.uml.Class"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.EClass"/>
 </qualifiedTypeNameHistroy>

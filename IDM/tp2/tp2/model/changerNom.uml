@@ -5,6 +5,19 @@
   </packageImport>
   <packagedElement xsi:type="uml:Package" name="truc"/>
   <packagedElement xsi:type="uml:Package" name="pouet">
+    <packagedElement xsi:type="uml:Class" name="aClass" classifierBehavior="//pouet/aClass/@ownedBehavior.0">
+      <ownedBehavior xsi:type="uml:StateMachine">
+        <region>
+          <transition name="aName" source="//pouet/aClass/@ownedBehavior.0/@region.0/state2" target="//pouet/aClass/@ownedBehavior.0/@region.0/state1">
+            <trigger name="" event="//pouet/anEvent"/>
+          </transition>
+          <subvertex xsi:type="uml:FinalState" name="state1"/>
+          <subvertex xsi:type="uml:State" name="state2"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation name="aMethod"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CallEvent" name="anEvent" operation="//pouet/aClass/aMethod"/>
     <packagedElement xsi:type="uml:Class" name="Class1"/>
   </packagedElement>
 </uml:Model>

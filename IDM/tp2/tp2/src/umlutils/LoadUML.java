@@ -1,6 +1,9 @@
 package umlutils;
 
 
+import java.util.ArrayList;
+import java.util.Vector;
+
 import org.eclipse.emf.*;
 import org.eclipse.emf.common.util.*;
 import org.eclipse.emf.ecore.*;
@@ -14,6 +17,7 @@ import org.eclipse.uml2.uml.Model;
 //import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.VisibilityKind;
+import org.eclipse.uml2.uml.internal.impl.StateMachineImpl;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Class;
@@ -46,6 +50,21 @@ public class LoadUML {
 		//Sauvegarder le modèle avec son nouveau nom
 		sauverModele("model/changerNom.uml", umlP);
 		
+		
+		
+		
+		//2nd part
+		Vector<StateMachine> sms=getStateMachineFromClass(findClassInPackage("aClass",findPackageInPackage("pouet",umlP)));
+		for(StateMachine sm: sms){
+			System.out.println("Does that StateMachine has only one region?");
+			System.out.println(stateMachineHasOnlyOneRegion(sm));
+			
+			System.out.println("And contains :");
+			System.out.println(getStatesFromStateMachine(sm));
+			
+			System.out.println("which are triggered by methods:");
+			System.out.println(getTriggerOperationFromStateMachine(sm));
+		}
 	}
 	
 	
@@ -175,5 +194,73 @@ public class LoadUML {
 		   }
 		   return (Model) resource.getContents().get(0);
 		}
+		
+		//2
+		public static Vector<StateMachine> getStateMachineFromClass(Class c){
+	        Vector<StateMachine> statesMachines = new Vector<StateMachine>();
+			if(c==null){
+				System.out.println("class doesn't exists");
+				return null;
+			}
+			for(Behavior b : c.getOwnedBehaviors()){
+				if (b instanceof StateMachineImpl) {
+					statesMachines.add((StateMachine) b);
+	            }
+			}
+	        return statesMachines;
+		}
+		
+		public static boolean stateMachineHasOnlyOneRegion(StateMachine stama){ 
+			boolean res = false;
+			if(stama.getRegions().size()==1){
+				res=true;
+			} 
+			return res; 
+		}
 
+		public static ArrayList<State> getStatesFromStateMachine(StateMachine stama){
+			ArrayList<State> arState= new ArrayList<State>();
+			if(stateMachineHasOnlyOneRegion(stama)){	
+				Region r=stama.getRegions().get(0);
+
+				for(Vertex ver: r.getSubvertices()){
+					if(ver instanceof State){
+						arState.add((State) ver);
+					}
+				}
+			}
+			return arState;
+		}
+
+		public static ArrayList<Operation> getTriggerOperationFromStateMachine(StateMachine stama){
+            ArrayList<Operation> arOP = new ArrayList<Operation>();
+            if(stateMachineHasOnlyOneRegion(stama)){
+                Region r=stama.getRegions().get(0);
+                for(Transition transition : r.getTransitions()){
+                    for(Trigger trigger: transition.getTriggers()){                
+                        Event e = trigger.getEvent();
+                        if(e instanceof CallEvent){
+                            arOP.add(((CallEvent) e).getOperation());        
+                        }
+                    }
+                }
+            }
+            return arOP;
+        }
+		
+		//q6
+		public static Class factoryClass(String name,ArrayList<Operation> op,EList<NamedElement> supers){
+			Class c=UMLFactory.eINSTANCE.createClass();
+			c.setName(name);
+			c.inherit(supers);
+			EList<Operation> cop=c.getOwnedOperations();
+			for(Operation o: op){
+				op.add(o);
+			}
+			c.setIsAbstract(false);
+			
+			return c;
+		}
+		
 }
+
