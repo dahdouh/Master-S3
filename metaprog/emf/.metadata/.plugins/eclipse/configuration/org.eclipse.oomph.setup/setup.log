@@ -1,0 +1,21 @@
+[2018-11-08 20:15:12] Executing startup tasks
+[2018-11-08 20:15:14] OpenJDK Runtime Environment 1.8.0_181-8u181-b13-1ubuntu0.16.04.1-b13
+[2018-11-08 20:15:14] Product self.product.version
+[2018-11-08 20:15:14] Workspace /home/ariale/Master-S3/metaprog/runtime-New_configuration
+[2018-11-08 20:15:14] Bundle org.eclipse.oomph.setup 1.9.0.v20180203-0645, build=20180313-121447, branch=d7599fdc009513885f82570d61f0171d42b7ebe5
+[2018-11-08 20:15:14] Bundle org.eclipse.oomph.setup.core 1.9.0.v20180310-0545, build=20180313-121447, branch=d7599fdc009513885f82570d61f0171d42b7ebe5
+[2018-11-08 20:15:14] Bundle org.eclipse.oomph.setup.p2 1.9.0.v20171221-1140, build=20180313-121447, branch=d7599fdc009513885f82570d61f0171d42b7ebe5
+[2018-11-08 20:15:15] Performing Preference /instance/org.eclipse.core.resources/encoding = UTF-8
+[2018-11-08 20:15:15] Performing Preference /instance/org.eclipse.core.resources/refresh.lightweight.enabled = true
+[2018-11-08 20:15:15] Performing Preference /instance/org.eclipse.ui.editors/lineNumberRuler = true
+[2018-11-08 20:15:15] Performing Preference /instance/org.eclipse.ui.workbench/RUN_IN_BACKGROUND = true
+[2018-11-08 20:15:15] 
+[2018-11-08 20:45:25] Executing startup tasks
+[2018-11-08 20:45:25] OpenJDK Runtime Environment 1.8.0_181-8u181-b13-1ubuntu0.16.04.1-b13
+[2018-11-08 20:45:25] Product self.product.version
+[2018-11-08 20:45:25] Workspace /home/ariale/Master-S3/metaprog/runtime-New_configuration
+[2018-11-08 20:45:25] Bundle org.eclipse.oomph.setup 1.9.0.v20180203-0645, build=20180313-121447, branch=d7599fdc009513885f82570d61f0171d42b7ebe5
+[2018-11-08 20:45:25] Bundle org.eclipse.oomph.setup.core 1.9.0.v20180310-0545, build=20180313-121447, branch=d7599fdc009513885f82570d61f0171d42b7ebe5
+[2018-11-08 20:45:25] Bundle org.eclipse.oomph.setup.p2 1.9.0.v20171221-1140, build=20180313-121447, branch=d7599fdc009513885f82570d61f0171d42b7ebe5
+[2018-11-08 20:45:25] Performing Preference /instance/org.eclipse.ui.workbench/RUN_IN_BACKGROUND = true
+[2018-11-08 20:45:25] 
