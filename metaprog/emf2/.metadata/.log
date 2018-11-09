@@ -1,0 +1,154 @@
+!SESSION 2018-11-09 10:27:17.277 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.ui 2 2 2018-11-09 10:27:56.798
+!MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.properties.ui.propertyview (bundle: org.eclipse.papyrus.uml.properties, page: org.eclipse.papyrus.uml.properties.multiplicityEditorProperties)
+
+!ENTRY org.eclipse.jface 2 0 2018-11-09 10:43:22.481
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:761)
+	at org.eclipse.jface.viewers.ColumnViewer.update(ColumnViewer.java:540)
+	at org.eclipse.emfforms.internal.swt.treemasterdetail.decorator.validation.ecp.ECPValidationServiceLabelDecorator.updateViewer(ECPValidationServiceLabelDecorator.java:108)
+	at org.eclipse.emfforms.internal.swt.treemasterdetail.decorator.validation.ecp.ECPValidationServiceLabelDecorator$1.revalidationOccurred(ECPValidationServiceLabelDecorator.java:62)
+	at org.eclipse.emfforms.spi.swt.treemasterdetail.diagnostic.DiagnosticCache.notifyValidationListeners(DiagnosticCache.java:212)
+	at org.eclipse.emfforms.spi.swt.treemasterdetail.diagnostic.DiagnosticCache.updateCacheWithoutRefresh(DiagnosticCache.java:225)
+	at org.eclipse.emfforms.internal.editor.ecore.EcoreDiagnosticCache.updateCacheWithoutRefresh(EcoreDiagnosticCache.java:41)
+	at org.eclipse.emfforms.spi.swt.treemasterdetail.diagnostic.DiagnosticCache$ValidationChangeListener.notifyChanged(DiagnosticCache.java:336)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.emf.common.notify.impl.NotificationImpl.dispatch(NotificationImpl.java:1027)
+	at org.eclipse.emf.ecore.impl.ETypedElementImpl.setEType(ETypedElementImpl.java:366)
+	at org.eclipse.emf.ecore.impl.EOperationImpl.eSet(EOperationImpl.java:935)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eSet(BasicEObjectImpl.java:1071)
+	at org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl.setValue(XMLHelperImpl.java:1204)
+	at org.eclipse.emf.ecore.xmi.impl.XMLHandler.setFeatureValue(XMLHandler.java:2692)
+	at org.eclipse.emf.ecore.xmi.impl.XMLHandler.handleForwardReferences(XMLHandler.java:1175)
+	at org.eclipse.emf.ecore.xmi.impl.XMLHandler.endDocument(XMLHandler.java:1264)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.endDocument(AbstractSAXParser.java:745)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.emf.ecore.xmi.impl.XMLLoadImpl.load(XMLLoadImpl.java:175)
+	at org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl.doLoad(XMLResourceImpl.java:261)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1518)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.load(ResourceImpl.java:1297)
+	at org.eclipse.emfforms.spi.editor.GenericEditor.handleResourceChange(GenericEditor.java:198)
+	at org.eclipse.emfforms.spi.editor.GenericEditor$GenericEditorResourceChangeListener.resourceChanged(GenericEditor.java:808)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2253)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:128)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+
+!ENTRY org.eclipse.core.resources 4 2 2018-11-09 10:43:22.512
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.swt.SWTException: Invalid thread access
+	at org.eclipse.swt.SWT.error(SWT.java:4533)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.SWT.error(SWT.java:4419)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:483)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:421)
+	at org.eclipse.swt.widgets.Tree.getSelection(Tree.java:1775)
+	at org.eclipse.jface.viewers.TreeViewer.getSelection(TreeViewer.java:228)
+	at org.eclipse.jface.viewers.TreeViewer.setSelection(TreeViewer.java:299)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:2510)
+	at org.eclipse.jface.viewers.StructuredViewer.setSelectionToWidget(StructuredViewer.java:1772)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:2992)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1465)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:354)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1419)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1519)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:523)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1478)
+	at org.eclipse.emfforms.spi.editor.GenericEditor.handleResourceChange(GenericEditor.java:202)
+	at org.eclipse.emfforms.spi.editor.GenericEditor$GenericEditorResourceChangeListener.resourceChanged(GenericEditor.java:808)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2253)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:128)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+
+!ENTRY org.eclipse.pde.build 4 17 2018-11-09 10:51:19.096
+!MESSAGE Could not create feature: file:/auto_home/pmissechanab/.p2/pool/features/org.eclipse.epp.package.modeling.feature_4.6.3.20170314-1500/feature.xml.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems parsing the feature file:/auto_home/pmissechanab/.p2/pool/features/org.eclipse.epp.package.modeling.feature_4.6.3.20170314-1500/feature.xml.
+	at org.eclipse.pde.internal.build.site.BuildTimeFeatureFactory.parseBuildFeature(BuildTimeFeatureFactory.java:85)
+	at org.eclipse.pde.internal.build.site.BuildTimeFeatureFactory.createFeature(BuildTimeFeatureFactory.java:50)
+	at org.eclipse.pde.internal.build.site.BuildTimeSite.createFeature(BuildTimeSite.java:458)
+	at org.eclipse.pde.internal.build.site.compatibility.FeatureReference.getFeature(FeatureReference.java:39)
+	at org.eclipse.pde.internal.build.site.BuildTimeSite.resolveFeatureReferences(BuildTimeSite.java:316)
+	at org.eclipse.pde.internal.build.site.BuildTimeSite.findFeature(BuildTimeSite.java:285)
+	at org.eclipse.pde.internal.build.site.BuildTimeSite.findFeature(BuildTimeSite.java:277)
+	at org.eclipse.pde.internal.build.BuildScriptGenerator.generateFeatures(BuildScriptGenerator.java:249)
+	at org.eclipse.pde.internal.build.BuildScriptGenerator.generate(BuildScriptGenerator.java:127)
+	at org.eclipse.pde.internal.core.exports.FeatureExportOperation.doExport(FeatureExportOperation.java:255)
+	at org.eclipse.pde.internal.core.exports.FeatureBasedExportOperation.run(FeatureBasedExportOperation.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: Error parsing feature: "require" must include at least one "import" element.
+!SUBENTRY 1 org.eclipse.equinox.p2.publisher.eclipse 4 17 2018-11-09 10:51:19.096
+!MESSAGE Problems parsing the feature file:/auto_home/pmissechanab/.p2/pool/features/org.eclipse.epp.package.modeling.feature_4.6.3.20170314-1500/feature.xml.
+!SUBENTRY 2 org.eclipse.equinox.p2.publisher.eclipse 4 17 2018-11-09 10:51:19.096
+!MESSAGE Error parsing feature: "require" must include at least one "import" element.
+
+!ENTRY org.eclipse.pde.build 4 1 2018-11-09 10:51:19.106
+!MESSAGE Problems parsing the feature file:/auto_home/pmissechanab/.p2/pool/features/org.eclipse.epp.package.modeling.feature_4.6.3.20170314-1500/feature.xml.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems parsing the feature file:/auto_home/pmissechanab/.p2/pool/features/org.eclipse.epp.package.modeling.feature_4.6.3.20170314-1500/feature.xml.
+	at org.eclipse.pde.internal.build.site.BuildTimeFeatureFactory.parseBuildFeature(BuildTimeFeatureFactory.java:85)
+	at org.eclipse.pde.internal.build.site.BuildTimeFeatureFactory.createFeature(BuildTimeFeatureFactory.java:50)
+	at org.eclipse.pde.internal.build.site.BuildTimeSite.createFeature(BuildTimeSite.java:458)
+	at org.eclipse.pde.internal.build.site.compatibility.FeatureReference.getFeature(FeatureReference.java:39)
+	at org.eclipse.pde.internal.build.site.BuildTimeSite.resolveFeatureReferences(BuildTimeSite.java:316)
+	at org.eclipse.pde.internal.build.site.BuildTimeSite.findFeature(BuildTimeSite.java:285)
+	at org.eclipse.pde.internal.build.site.BuildTimeSite.findFeature(BuildTimeSite.java:277)
+	at org.eclipse.pde.internal.build.BuildScriptGenerator.generateFeatures(BuildScriptGenerator.java:249)
+	at org.eclipse.pde.internal.build.BuildScriptGenerator.generate(BuildScriptGenerator.java:127)
+	at org.eclipse.pde.internal.core.exports.FeatureExportOperation.doExport(FeatureExportOperation.java:255)
+	at org.eclipse.pde.internal.core.exports.FeatureBasedExportOperation.run(FeatureBasedExportOperation.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: Error parsing feature: "require" must include at least one "import" element.
+!SUBENTRY 1 org.eclipse.equinox.p2.publisher.eclipse 4 17 2018-11-09 10:51:19.106
+!MESSAGE Problems parsing the feature file:/auto_home/pmissechanab/.p2/pool/features/org.eclipse.epp.package.modeling.feature_4.6.3.20170314-1500/feature.xml.
+!SUBENTRY 2 org.eclipse.equinox.p2.publisher.eclipse 4 17 2018-11-09 10:51:19.106
+!MESSAGE Error parsing feature: "require" must include at least one "import" element.
+!SESSION 2018-11-09 11:13:25.498 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.ui 2 2 2018-11-09 11:13:56.601
+!MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.properties.ui.propertyview (bundle: org.eclipse.papyrus.uml.properties, page: org.eclipse.papyrus.uml.properties.multiplicityEditorProperties)
+!SESSION 2018-11-09 11:35:39.759 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.ui 2 2 2018-11-09 11:37:51.276
+!MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.properties.ui.propertyview (bundle: org.eclipse.papyrus.uml.properties, page: org.eclipse.papyrus.uml.properties.multiplicityEditorProperties)

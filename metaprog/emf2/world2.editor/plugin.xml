@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated world2 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="world2.presentation.World2ModelWizardID"
+            name="%_UI_World2ModelWizard_label"
+            class="world2.presentation.World2ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/World2ModelFile.gif">
+         <description>%_UI_World2ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated world2 -->
+      <editor
+            id="world2.presentation.World2EditorID"
+            name="%_UI_World2Editor_label"
+            icon="icons/full/obj16/World2ModelFile.gif"
+            extensions="world2"
+            class="world2.presentation.World2Editor"
+            contributorClass="world2.presentation.World2ActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

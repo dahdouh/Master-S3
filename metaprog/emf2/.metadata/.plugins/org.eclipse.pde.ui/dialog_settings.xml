@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="PluginImportWizard">
+		<item value="3" key="importType"/>
+		<item value="true" key="scanAll"/>
+		<item value="true" key="addFragments"/>
+		<item value="1" key="importFrom"/>
+		<item value="true" key="showLatestPluginsOnly"/>
+	</section>
+	<section name="PluginExportWizard">
+		<item value="/auto_home/pmissechanab/Master-S3/metaprog/emf2" key="destination0"/>
+		<item value="/auto_home/pmissechanab/Master-S3/metaprog/emf2" key="destination1"/>
+		<item value="" key="keypass"/>
+		<item value="Generate source bundles" key="exportSourceFormat"/>
+		<item value="false" key="signJAR"/>
+		<item value="true" key="exportUpdate"/>
+		<item value="false" key="saveAsAnt"/>
+		<item value="false" key="exportSource"/>
+		<item value="true" key="allowBinaryCycles"/>
+		<item value="" key="password"/>
+		<item value="201811091050" key="qualifierName"/>
+		<item value="false" key="useWorkspaceCompiledClasses"/>
+		<item value="1" key="exportType"/>
+		<item value="false" key="qualifier"/>
+		<item value="" key="alias"/>
+		<item value="" key="keystore"/>
+	</section>
+	<section name="editBundleContainerWizard">
+	</section>
+</section>

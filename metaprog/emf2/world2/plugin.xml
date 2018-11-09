@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated world2 -->
+      <package
+            uri="http://www.example.org/world2"
+            class="world2.World2Package"
+            genModel="model/world2.genmodel"/>
+   </extension>
+
+</plugin>
