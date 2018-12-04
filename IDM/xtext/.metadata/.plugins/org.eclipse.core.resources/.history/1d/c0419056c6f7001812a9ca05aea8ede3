@@ -1,0 +1,9 @@
+grammar org.xtext.example.mydsl.Mymix with org.eclipse.xtext.common.Terminals
+
+generate mymix "http://www.xtext.org/example/mydsl/Mymix"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

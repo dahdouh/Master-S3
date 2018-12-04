@@ -1,0 +1,5 @@
+datatype String
+
+entity HasAuthor{
+	HasAuthor:String
+}

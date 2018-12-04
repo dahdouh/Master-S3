@@ -1,0 +1,19 @@
+procedure pouet
+	check cup 1 
+	take 9 mL from cup 1 
+		wait 5 sec
+		put 5 mL to cup 4  
+		wait 5 sec
+		put 4 mL to cup 5 
+	
+	take 20 mL from cup 1  
+				to cup 20
+	wait 4 sec	
+	result cup 5
+	
+procedure pouet_le_retour
+	check cup 1
+	result 5
+				
+	
+	

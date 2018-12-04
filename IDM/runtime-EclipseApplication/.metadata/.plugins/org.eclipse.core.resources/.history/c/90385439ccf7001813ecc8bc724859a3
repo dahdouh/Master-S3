@@ -1,0 +1,14 @@
+procedure pouet
+	check cup 1 
+	take 9 mL from cup 1 
+		wait 5 sec
+		put 5 mL to cup 4  
+		wait 5
+		put 4 to 5
+	take 20 from 1 
+			to 20
+	wait 4	
+	result 5
+				
+	
+	

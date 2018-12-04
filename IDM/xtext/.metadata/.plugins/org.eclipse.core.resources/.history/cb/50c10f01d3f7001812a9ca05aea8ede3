@@ -1,0 +1,72 @@
+grammar org.xtext.example.mydsl.Mymix with org.eclipse.xtext.common.Terminals
+
+generate mymix "http://www.xtext.org/example/mydsl/Mymix"
+
+Model:
+	Procedures+=Procedure*;
+	
+Procedure:
+	'procedure' name=ID
+	(body+=Operation)+
+	body+=Result
+;
+
+Operation:
+	Check
+	| Wait
+	| TakeStuff	
+;
+
+TakeStuff:
+	Take ( 	
+		body=PutSome	
+		| body=PutAll
+		)
+;
+
+
+
+Take:
+	'take' Quantity 'from' cup=Cup ('filter' filter=Filter)?	
+;
+
+PutSome:
+	(body+=Wait? body+=Put)+
+;
+
+PutAll:
+	'to' Cup
+;
+
+Put:
+	'put' Quantity 'to' cup=Cup ('filter' filter=Filter
+	)? 
+;
+
+Check:
+	'check' Cup ('forQuantity' quantity=Quantity)? 
+;
+
+Wait:
+	'wait' Time
+;
+
+Result:
+	'result' Cup
+;
+
+Filter:
+	filter='A' | filter='B'
+;
+
+Cup:
+	'cup'? cup=INT
+;
+
+Quantity:
+	quantity=INT 'mL'?
+;
+
+Time:
+	time=INT 'sec'?
+;

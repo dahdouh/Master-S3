@@ -1,0 +1,41 @@
+grammar org.example.domainmodel.Domainmodel with
+                                          org.eclipse.xtext.common.Terminals
+     
+generate domainmodel "http://www.example.org/domainmodel/Domainmodel"
+     
+Domainmodel :
+	(elements+=Elements)*;
+      
+Elements :
+	Type | PackagesStuff
+;
+
+PackagesStuff:
+	Import | Packages
+;
+
+Packages:
+	'package' PackageName '{' t=Type | ps=PackagesStuff '}'
+;
+
+PackageName:
+	ID ('.' ID)*
+;
+
+Import:
+	'import' name=ID
+;
+      
+Type:
+	DataType | Entity;
+      
+DataType:
+	'datatype' name=ID;
+     
+Entity:
+	'entity' name=ID ('extends' superType=[Entity])? '{'
+		(features+=Feature)*
+    '}';
+     
+Feature:
+	(many?='many')? name=ID ':' type=[Type];

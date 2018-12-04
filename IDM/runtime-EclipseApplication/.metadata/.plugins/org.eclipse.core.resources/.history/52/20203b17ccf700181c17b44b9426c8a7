@@ -1,0 +1,12 @@
+procedure pouet
+	check 1
+	take 9 from 1
+		wait 5
+		put 5 to 4
+		wait 5
+		put 4 to 5
+	wait 4	
+	result 5
+				
+	
+	
